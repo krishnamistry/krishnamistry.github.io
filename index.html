@@ -300,6 +300,105 @@
     color: #cbd5e1;
     font-size: 13px;
 }
+
+        .experience {
+    padding: 90px 8%;
+    background: #0f172a;
+}
+
+.experience-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.experience-header {
+    margin-bottom: 50px;
+}
+
+.experience-header span {
+    color: #38bdf8;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.experience-header h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.timeline {
+    position: relative;
+    border-left: 2px solid #1e293b;
+    padding-left: 35px;
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #38bdf8;
+    border-radius: 50%;
+    left: -43px;
+    top: 7px;
+    box-shadow: 0 0 0 6px #0f172a;
+}
+
+.experience-date {
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.experience-item h3 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.company {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 17px;
+}
+
+.experience-item ul {
+    padding-left: 20px;
+    max-width: 900px;
+}
+
+.experience-item li {
+    color: #94a3b8;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 20px;
+}
+
+.experience-tags span {
+    background: #111827;
+    border: 1px solid #334155;
+    padding: 6px 11px;
+    border-radius: 6px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
         @media (max-width: 768px) {
 
             nav .nav-links {
@@ -345,6 +444,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
@@ -641,6 +741,133 @@
                 <span>Universal Print</span>
                 <span>DNS/DHCP</span>
                 <span>UniFi</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="experience" id="experience">
+
+    <div class="experience-container">
+
+        <div class="experience-header">
+            <span>Professional Experience</span>
+            <h2>My IT career.</h2>
+        </div>
+
+        <div class="timeline">
+
+
+            <!-- CURRENT ROLE -->
+
+            <div class="experience-item">
+
+                <div class="experience-dot"></div>
+
+                <p class="experience-date">
+                    APRIL 2024 — PRESENT
+                </p>
+
+                <h3>IT Systems Administrator</h3>
+
+                <p class="company">
+                    HD Mutual Insurance Company • Canada
+                </p>
+
+                <ul>
+                    <li>
+                        Serve as the sole IT Systems Administrator providing
+                        L3 technical support to 120+ users across Microsoft 365,
+                        Windows, macOS, Entra ID, Intune and enterprise applications.
+                    </li>
+
+                    <li>
+                        Manage identity and access, application deployment,
+                        onboarding/offboarding, endpoints, licensing and
+                        user lifecycle processes.
+                    </li>
+
+                    <li>
+                        Implemented Intune, Conditional Access, Zero Trust,
+                        MDM/MAM, RBAC, SSO, SSPR and Entra PIM, contributing
+                        to an increase in Microsoft Defender Secure Score
+                        from 45% to 90%.
+                    </li>
+
+                    <li>
+                        Build IT automation using PowerShell, Microsoft Graph,
+                        REST APIs, Power Automate and Microsoft Copilot Studio.
+                    </li>
+                </ul>
+
+                <div class="experience-tags">
+                    <span>Microsoft 365</span>
+                    <span>Azure</span>
+                    <span>Entra ID</span>
+                    <span>Intune</span>
+                    <span>Defender</span>
+                    <span>PowerShell</span>
+                    <span>Graph API</span>
+                    <span>Power Automate</span>
+                </div>
+
+            </div>
+
+
+            <!-- PREVIOUS ROLE -->
+
+            <div class="experience-item">
+
+                <div class="experience-dot"></div>
+
+                <p class="experience-date">
+                    SEPTEMBER 2019 — APRIL 2024
+                </p>
+
+                <h3>Tier 2 IT Analyst</h3>
+
+                <p class="company">
+                    Fully Managed by TELUS Business • Canada
+                </p>
+
+                <ul>
+                    <li>
+                        Progressed from Tier 1 to Tier 2 within one year
+                        based on technical performance.
+                    </li>
+
+                    <li>
+                        Provided L2 support across Microsoft 365, Windows Server,
+                        networking, VPN, DNS/DHCP, Exchange Online, ServiceNow,
+                        Cisco and enterprise environments.
+                    </li>
+
+                    <li>
+                        Diagnosed complex hardware, software, network and
+                        infrastructure incidents while performing root cause
+                        analysis and maintaining SLA requirements.
+                    </li>
+
+                    <li>
+                        Supported laptops, printers, networking equipment,
+                        endpoint peripherals, backups and recovery processes.
+                    </li>
+                </ul>
+
+                <div class="experience-tags">
+                    <span>Microsoft 365</span>
+                    <span>Windows Server</span>
+                    <span>ServiceNow</span>
+                    <span>Networking</span>
+                    <span>VPN</span>
+                    <span>DNS/DHCP</span>
+                    <span>Exchange Online</span>
+                    <span>Cisco</span>
+                </div>
 
             </div>
 
