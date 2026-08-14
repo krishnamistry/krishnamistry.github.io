@@ -214,7 +214,92 @@
     color: #94a3b8;
     font-size: 14px;
 }
-        
+        .projects {
+    padding: 90px 8%;
+    background: #0b1120;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.projects-header {
+    margin-bottom: 45px;
+}
+
+.projects-header span {
+    color: #38bdf8;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.projects-header h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.project-card {
+    background: #111827;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 35px;
+    margin-bottom: 30px;
+}
+
+.project-number {
+    color: #38bdf8;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.project-description {
+    color: #94a3b8;
+    font-size: 16px;
+    margin-bottom: 25px;
+    max-width: 900px;
+}
+
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.project-block h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.project-block p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.project-tech span {
+    background: #0f172a;
+    border: 1px solid #334155;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: #cbd5e1;
+    font-size: 13px;
+}
         @media (max-width: 768px) {
 
             nav .nav-links {
@@ -237,6 +322,10 @@
                 font-size: 16px;
             }
 
+            .project-details {
+    grid-template-columns: 1fr;
+}
+            
             .about-content {
     grid-template-columns: 1fr;
 }
@@ -358,6 +447,110 @@
                     <h3>L3</h3>
                     <p>Current Technical Support Responsibility</p>
                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="projects" id="projects">
+
+    <div class="projects-container">
+
+        <div class="projects-header">
+            <span>Featured Projects</span>
+            <h2>Infrastructure, cloud and security projects.</h2>
+        </div>
+
+
+        <div class="project-card">
+
+            <p class="project-number">PROJECT 01</p>
+
+            <h3>
+                Enterprise Identity, Endpoint & Infrastructure Migration
+            </h3>
+
+            <p class="project-description">
+                Led the migration of 120+ Windows devices from an
+                on-premises Active Directory environment to a cloud-first
+                Microsoft Entra ID and Microsoft Intune architecture.
+            </p>
+
+
+            <div class="project-details">
+
+                <div class="project-block">
+
+                    <h4>The Challenge</h4>
+
+                    <p>
+                        Modernize a traditional on-premises environment while
+                        maintaining user access, preserving user profiles and
+                        data, and minimizing disruption during the migration.
+                    </p>
+
+                </div>
+
+
+                <div class="project-block">
+
+                    <h4>What I Implemented</h4>
+
+                    <p>
+                        Migrated devices from AD domain-joined to Entra-joined,
+                        implemented Intune compliance and enrollment controls,
+                        Conditional Access and Zero Trust security, and supported
+                        the move of printers, file services and infrastructure
+                        toward cloud-based services.
+                    </p>
+
+                </div>
+
+
+                <div class="project-block">
+
+                    <h4>Infrastructure Modernization</h4>
+
+                    <p>
+                        Migrated on-premises printers to Microsoft Universal Print,
+                        moved file shares to cloud storage, provisioned Azure
+                        Virtual Machines and supported LAN/WAN infrastructure,
+                        firewalls, UniFi wireless, DNS and DHCP.
+                    </p>
+
+                </div>
+
+
+                <div class="project-block">
+
+                    <h4>Outcome</h4>
+
+                    <p>
+                        Established a more centralized cloud-first environment
+                        with modern identity, endpoint management and security
+                        controls across more than 120 Windows endpoints.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-tech">
+
+                <span>Microsoft Entra ID</span>
+                <span>Microsoft Intune</span>
+                <span>Active Directory</span>
+                <span>Conditional Access</span>
+                <span>Zero Trust</span>
+                <span>Azure</span>
+                <span>Universal Print</span>
+                <span>DNS/DHCP</span>
+                <span>UniFi</span>
 
             </div>
 
