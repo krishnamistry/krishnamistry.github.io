@@ -543,6 +543,66 @@
     color: #64748b;
     font-size: 13px;
 }
+
+        .skills-section {
+    padding: 90px 8%;
+    background: #0b1120;
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.skills-header {
+    margin-bottom: 45px;
+}
+
+.skills-header span {
+    color: #38bdf8;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.skills-header h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.skills-category {
+    background: #111827;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.skills-category h3 {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skills-list span {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 7px 11px;
+    border-radius: 6px;
+    font-size: 13px;
+}
         
         @media (max-width: 768px) {
 
@@ -562,6 +622,10 @@
                 font-size: 24px;
             }
 
+            .skills-grid {
+    grid-template-columns: 1fr;
+}
+            
             .credentials-grid {
     grid-template-columns: 1fr;
 }
@@ -1162,24 +1226,117 @@
 
         <p class="section-label">Core Technologies</p>
 
-        <div class="skills">
+        <section class="skills-section" id="skills">
 
-            <span class="skill">Microsoft 365</span>
-            <span class="skill">Azure</span>
-            <span class="skill">AWS</span>
-            <span class="skill">Entra ID</span>
-            <span class="skill">Intune</span>
-            <span class="skill">Active Directory</span>
-            <span class="skill">Conditional Access</span>
-            <span class="skill">Microsoft Defender</span>
-            <span class="skill">PowerShell</span>
-            <span class="skill">Terraform</span>
-            <span class="skill">Docker</span>
-            <span class="skill">Kubernetes</span>
-            <span class="skill">Power Automate</span>
-            <span class="skill">REST APIs</span>
+    <div class="skills-container">
+
+        <div class="skills-header">
+            <span>Technical Skills</span>
+            <h2>Tools and technologies I work with.</h2>
+        </div>
+
+        <div class="skills-grid">
+
+
+            <div class="skills-category">
+                <h3>Identity & Security</h3>
+
+                <div class="skills-list">
+                    <span>Microsoft Entra ID</span>
+                    <span>Active Directory</span>
+                    <span>Intune</span>
+                    <span>Conditional Access</span>
+                    <span>MFA</span>
+                    <span>SSO</span>
+                    <span>IAM</span>
+                    <span>RBAC</span>
+                    <span>PIM</span>
+                    <span>MDM</span>
+                    <span>Microsoft Defender</span>
+                </div>
+            </div>
+
+
+            <div class="skills-category">
+                <h3>Cloud & Infrastructure</h3>
+
+                <div class="skills-list">
+                    <span>Microsoft Azure</span>
+                    <span>AWS</span>
+                    <span>GCP</span>
+                    <span>Virtual Machines</span>
+                    <span>Hybrid Cloud</span>
+                    <span>Terraform</span>
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                </div>
+            </div>
+
+
+            <div class="skills-category">
+                <h3>Networking</h3>
+
+                <div class="skills-list">
+                    <span>Site-to-Site VPN</span>
+                    <span>Firewalls</span>
+                    <span>NSG</span>
+                    <span>VNET</span>
+                    <span>DNS</span>
+                    <span>DHCP</span>
+                    <span>TCP/IP</span>
+                    <span>SSH</span>
+                    <span>NAT</span>
+                    <span>UniFi Switching</span>
+                    <span>Splunk</span>
+                    <span>Network Security</span>
+                    <span>Kuma Uptime</span>
+                </div>
+            </div>
+
+
+            <div class="skills-category">
+                <h3>ITSM & Support</h3>
+
+                <div class="skills-list">
+                    <span>Microsoft 365</span>
+                    <span>ServiceNow</span>
+                    <span>Jira</span>
+                    <span>Zendesk</span>
+                    <span>Okta</span>
+                    <span>Kaseya VSA X</span>
+                    <span>N-able</span>
+                    <span>ConnectWise</span>
+                    <span>Patch Management</span>
+                    <span>Knowledge Base</span>
+                    <span>SOP</span>
+                </div>
+            </div>
+
+
+            <div class="skills-category">
+                <h3>Automation, OS & AI</h3>
+
+                <div class="skills-list">
+                    <span>PowerShell</span>
+                    <span>Git</span>
+                    <span>JSON</span>
+                    <span>Power Automate</span>
+                    <span>REST APIs</span>
+                    <span>Microsoft Copilot Studio</span>
+                    <span>Windows</span>
+                    <span>Linux</span>
+                    <span>macOS</span>
+                    <span>iOS</span>
+                    <span>Android</span>
+                </div>
+            </div>
+
 
         </div>
+
+    </div>
+
+</section>
 
     </section>
 <section class="contact" id="contact">
@@ -1196,7 +1353,7 @@
 
         <p class="contact-description">
             I'm open to opportunities in IT systems administration,
-            cloud administration & infrastructure, Microsoft technologies, identity,
+            Cloud administration & infrastructure, Microsoft technologies, DevOps roles, identity,
             security and automation.
         </p>
 
