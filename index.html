@@ -642,6 +642,31 @@
     font-size: 22px;
     font-weight: bold;
 }
+
+        .architecture-subtitle {
+    color: #38bdf8;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    margin-top: 5px;
+}
+
+.second-flow {
+    margin-top: 35px;
+}
+
+.infrastructure-flow .arch-box {
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.arch-box strong {
+    color: #ffffff;
+    font-weight: 600;
+}
         
         @media (max-width: 768px) {
 
@@ -1018,39 +1043,88 @@
 
     <h4>High-Level Architecture</h4>
 
+<div class="architecture">
+
+    <h4>Migration & Modernization Architecture</h4>
+
+    <p class="architecture-subtitle">
+        Identity and endpoint migration
+    </p>
+
     <div class="architecture-flow">
 
         <div class="arch-box">
-            On-Premises<br>
-            Active Directory
+            Existing Environment<br>
+            <strong>On-Prem Active Directory</strong>
         </div>
 
         <div class="arch-arrow">→</div>
 
         <div class="arch-box">
-            Microsoft Entra ID<br>
-            Identity Sync
+            Identity Synchronization<br>
+            <strong>Microsoft Entra Connect</strong>
         </div>
 
         <div class="arch-arrow">→</div>
 
         <div class="arch-box">
-            Microsoft Intune<br>
-            Device Management
+            Device Migration<br>
+            <strong>AD Joined → Entra Joined</strong>
         </div>
 
         <div class="arch-arrow">→</div>
 
         <div class="arch-box">
-            Conditional Access<br>
-            Zero Trust
+            Endpoint Management<br>
+            <strong>Microsoft Intune</strong>
         </div>
 
         <div class="arch-arrow">→</div>
 
         <div class="arch-box">
-            Cloud Services<br>
-            Azure & Universal Print
+            Security Controls<br>
+            <strong>Compliance + Conditional Access + Zero Trust</strong>
+        </div>
+
+    </div>
+
+
+    <p class="architecture-subtitle second-flow">
+        Infrastructure modernization
+    </p>
+
+    <div class="architecture-flow infrastructure-flow">
+
+        <div class="arch-box">
+            On-Prem Printers
+            <br>
+            ↓
+            <br>
+            <strong>Universal Print</strong>
+        </div>
+
+        <div class="arch-box">
+            On-Prem File Shares
+            <br>
+            ↓
+            <br>
+            <strong>Cloud Storage</strong>
+        </div>
+
+        <div class="arch-box">
+            Server Infrastructure
+            <br>
+            ↓
+            <br>
+            <strong>Azure Virtual Machines</strong>
+        </div>
+
+        <div class="arch-box">
+            Network Infrastructure
+            <br>
+            ↓
+            <br>
+            <strong>Firewalls • UniFi • DNS/DHCP</strong>
         </div>
 
     </div>
