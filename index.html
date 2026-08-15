@@ -603,6 +603,45 @@
     border-radius: 6px;
     font-size: 13px;
 }
+
+        .architecture {
+    margin-top: 30px;
+    padding: 25px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+}
+
+.architecture h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.architecture-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.arch-box {
+    flex: 1;
+    min-width: 140px;
+    background: #111827;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.arch-arrow {
+    color: #38bdf8;
+    font-size: 22px;
+    font-weight: bold;
+}
         
         @media (max-width: 768px) {
 
@@ -622,6 +661,14 @@
                 font-size: 24px;
             }
 
+            .architecture-flow {
+    flex-direction: column;
+}
+
+.arch-arrow {
+    transform: rotate(90deg);
+}
+            
             .skills-grid {
     grid-template-columns: 1fr;
 }
@@ -966,6 +1013,49 @@
                 <span>UniFi</span>
 
             </div>
+
+            <div class="architecture">
+
+    <h4>High-Level Architecture</h4>
+
+    <div class="architecture-flow">
+
+        <div class="arch-box">
+            On-Premises<br>
+            Active Directory
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+            Microsoft Entra ID<br>
+            Identity Sync
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+            Microsoft Intune<br>
+            Device Management
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+            Conditional Access<br>
+            Zero Trust
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+            Cloud Services<br>
+            Azure & Universal Print
+        </div>
+
+    </div>
+
+</div>
 
         </div>
 
