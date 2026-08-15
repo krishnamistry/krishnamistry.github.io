@@ -371,6 +371,83 @@
     font-size: 13px;
 }
 
+        .project-architecture-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.architecture-panel {
+    background: #111827;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.mini-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mini-step {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.mini-step strong {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.mini-step span {
+    display: block;
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.mini-arrow {
+    text-align: center;
+    color: #38bdf8;
+    font-size: 18px;
+}
+
+.modernization-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.modernization-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.modernization-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.modernization-card span {
+    display: block;
+    color: #38bdf8;
+    margin: 4px 0;
+}
+
+.modernization-card p {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
         .experience {
     padding: 90px 8%;
     background: #0f172a;
@@ -876,6 +953,14 @@
             .about-split {
     grid-template-columns: 1fr;
 }
+
+            .project-architecture-split {
+    grid-template-columns: 1fr;
+}
+
+.modernization-grid {
+    grid-template-columns: 1fr;
+}
             
     .hero {
         min-height: auto;
@@ -1219,23 +1304,21 @@
 
     <div class="project-tech">
 
-        <span>AWS</span>
-        <span>Terraform</span>
-        <span>Amazon VPC</span>
-        <span>EC2</span>
-        <span>Amazon RDS</span>
-        <span>IAM</span>
-        <span>Docker</span>
-        <span>Amazon EKS</span>
-        <span>Kubernetes</span>
-        <span>GitHub Actions</span>
-        <span>Linux</span>
-
-    </div>
+    <span>AWS</span>
+    <span>Terraform</span>
+    <span>Amazon VPC</span>
+    <span>EC2</span>
+    <span>Amazon RDS</span>
+    <span>IAM</span>
+    <span>Docker</span>
+    <span>Amazon EKS</span>
+    <span>Kubernetes</span>
+    <span>GitHub Actions</span>
+    <span>Linux</span>
 
 </div>
 
-            <div class="architecture">
+<div class="architecture">
 
     <h4>AWS Cloud & DevOps Project Flow</h4>
 
@@ -1342,14 +1425,12 @@
                 <span>Kubernetes</span>
             </div>
         </div>
+       
+    </div> <!-- closes devops-flow -->
 
-    </div>
+</div> <!-- closes architecture -->
 
-</div>
-            
-
-            
-        </div>
+</div> <!-- closes PROJECT 01 -->
 
 
         <div class="project-card">
@@ -1440,104 +1521,112 @@
 
             </div>
 
-            <div class="architecture">
-
-    <h4>High-Level Architecture</h4>
-
 <div class="architecture">
 
     <h4>Migration & Modernization Architecture</h4>
 
-    <p class="architecture-subtitle">
-        Identity and endpoint migration
-    </p>
+   <div class="architecture">
 
-    <div class="architecture-flow">
+    <h4>Migration & Modernization Architecture</h4>
 
-        <div class="arch-box">
-            Existing Environment<br>
-            <strong>On-Prem Active Directory</strong>
+    <div class="project-architecture-split">
+
+        <!-- LEFT SIDE -->
+        <div class="architecture-panel">
+
+            <p class="architecture-subtitle">
+                Identity & Endpoint Migration
+            </p>
+
+            <div class="mini-flow">
+
+                <div class="mini-step">
+                    <strong>On-Prem AD</strong>
+                    <span>Existing identity environment</span>
+                </div>
+
+                <div class="mini-arrow">↓</div>
+
+                <div class="mini-step">
+                    <strong>Entra Connect</strong>
+                    <span>Identity synchronization</span>
+                </div>
+
+                <div class="mini-arrow">↓</div>
+
+                <div class="mini-step">
+                    <strong>Entra ID</strong>
+                    <span>Cloud identity</span>
+                </div>
+
+                <div class="mini-arrow">↓</div>
+
+                <div class="mini-step">
+                    <strong>Microsoft Intune</strong>
+                    <span>Endpoint management</span>
+                </div>
+
+                <div class="mini-arrow">↓</div>
+
+                <div class="mini-step">
+                    <strong>Security Controls</strong>
+                    <span>Compliance • CA • Zero Trust</span>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="arch-arrow">→</div>
 
-        <div class="arch-box">
-            Identity Synchronization<br>
-            <strong>Microsoft Entra Connect</strong>
-        </div>
+        <!-- RIGHT SIDE -->
+        <div class="architecture-panel">
 
-        <div class="arch-arrow">→</div>
+            <p class="architecture-subtitle">
+                Infrastructure Modernization
+            </p>
 
-        <div class="arch-box">
-            Device Migration<br>
-            <strong>AD Joined → Entra Joined</strong>
-        </div>
+            <div class="modernization-grid">
 
-        <div class="arch-arrow">→</div>
+                <div class="modernization-card">
+                    <strong>Printers</strong>
+                    <span>↓</span>
+                    <p>Universal Print</p>
+                </div>
 
-        <div class="arch-box">
-            Endpoint Management<br>
-            <strong>Microsoft Intune</strong>
-        </div>
+                <div class="modernization-card">
+                    <strong>File Shares</strong>
+                    <span>↓</span>
+                    <p>Cloud Storage</p>
+                </div>
 
-        <div class="arch-arrow">→</div>
+                <div class="modernization-card">
+                    <strong>Servers</strong>
+                    <span>↓</span>
+                    <p>Azure Virtual Machines</p>
+                </div>
 
-        <div class="arch-box">
-            Security Controls<br>
-            <strong>Compliance + Conditional Access + Zero Trust</strong>
-        </div>
+                <div class="modernization-card">
+                    <strong>Network</strong>
+                    <span>↓</span>
+                    <p>Firewalls • UniFi • DNS/DHCP</p>
+                </div>
 
-    </div>
+            </div>
 
-
-    <p class="architecture-subtitle second-flow">
-        Infrastructure modernization
-    </p>
-
-    <div class="architecture-flow infrastructure-flow">
-
-        <div class="arch-box">
-            On-Prem Printers
-            <br>
-            ↓
-            <br>
-            <strong>Universal Print</strong>
-        </div>
-
-        <div class="arch-box">
-            On-Prem File Shares
-            <br>
-            ↓
-            <br>
-            <strong>Cloud Storage</strong>
-        </div>
-
-        <div class="arch-box">
-            Server Infrastructure
-            <br>
-            ↓
-            <br>
-            <strong>Azure Virtual Machines</strong>
-        </div>
-
-        <div class="arch-box">
-            Network Infrastructure
-            <br>
-            ↓
-            <br>
-            <strong>Firewalls • UniFi • DNS/DHCP</strong>
         </div>
 
     </div>
 
 </div>
+       </div> <!-- closes infrastructure-flow -->
 
-        </div>
+</div> <!-- closes architecture -->
 
-    </div>
+</div> <!-- closes PROJECT 02 -->
 
-</section>
+</div> <!-- closes projects-container -->
 
+</section> <!-- closes projects section -->
     <section class="experience" id="experience">
 
     <div class="experience-container">
@@ -1829,9 +1918,6 @@
                     <span>GCP</span>
                     <span>Virtual Machines</span>
                     <span>Hybrid Cloud</span>
-                    <span>Terraform</span>
-                    <span>Docker</span>
-                    <span>Kubernetes</span>
                 </div>
             </div>
 
@@ -1877,23 +1963,39 @@
 
 
             <div class="skills-category">
-                <h3>Automation, OS & AI</h3>
+                <h3>Automation & DevOps</h3>
 
                 <div class="skills-list">
-                    <span>PowerShell</span>
-                    <span>Git</span>
-                    <span>JSON</span>
-                    <span>Power Automate</span>
-                    <span>REST APIs</span>
-                    <span>Microsoft Copilot Studio</span>
-                    <span>Windows</span>
-                    <span>Linux</span>
-                    <span>macOS</span>
-                    <span>iOS</span>
-                    <span>Android</span>
+                   <span>PowerShell</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>GitHub Actions</span>
+        <span>CI/CD</span>
+        <span>Infrastructure as Code</span>
+        <span>Terraform</span>
+        <span>Docker</span>
+        <span>Kubernetes</span>
+        <span>Power Automate</span>
+        <span>REST APIs</span>
+        <span>JSON</span>
                 </div>
             </div>
 
+                        <div class="skills-category">
+                <h3>Platforms & AI</h3>
+
+                <div class="skills-list">
+                   <div class="skill-tags">
+        <span>Windows</span>
+        <span>Linux</span>
+        <span>macOS</span>
+        <span>iOS</span>
+        <span>Android</span>
+        <span>Microsoft Copilot Studio</span>
+        <span>AI Workflows</span>
+                </div>
+            </div>
+            
 
         </div>
 
@@ -1930,12 +2032,6 @@
                class="btn btn-secondary"
                target="_blank">
                 LinkedIn
-            </a>
-
-            <a href="https://github.com/krishnamistry"
-               class="btn btn-secondary"
-               target="_blank">
-                GitHub
             </a>
 
         </div>
