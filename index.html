@@ -371,52 +371,33 @@
     font-size: 13px;
 }
 
-        .project-architecture-split {
+     
+.project-summary-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    gap: 18px;
+    margin-top: 25px;
 }
 
-.architecture-panel {
-    background: #111827;
-    border: 1px solid #334155;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.mini-flow {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.mini-step {
+.project-summary-block {
     background: #0f172a;
     border: 1px solid #1e293b;
-    border-radius: 8px;
-    padding: 12px;
-    text-align: center;
+    border-radius: 10px;
+    padding: 18px;
 }
 
-.mini-step strong {
-    display: block;
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.mini-step span {
-    display: block;
-    color: #94a3b8;
-    font-size: 12px;
-    margin-top: 3px;
-}
-
-.mini-arrow {
-    text-align: center;
+.project-summary-block h4 {
     color: #38bdf8;
-    font-size: 18px;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
+.project-summary-block p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+        
 .modernization-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -950,11 +931,11 @@
         display: none;
     }
 
-            .about-split {
+            .project-summary-grid {
     grid-template-columns: 1fr;
 }
 
-            .project-architecture-split {
+            .about-split {
     grid-template-columns: 1fr;
 }
 
@@ -1231,7 +1212,8 @@
         <div class="projects-header">
             <span>Featured Projects</span>
 
-             <div class="project-card">
+           
+   <div class="project-card">
 
     <p class="project-number">PROJECT 01</p>
 
@@ -1240,393 +1222,138 @@
     </h3>
 
     <p class="project-description">
-        Designed and deployed a production-ready AWS cloud environment
-        using Infrastructure as Code, containerization, Kubernetes and
-        automated CI/CD workflows.
+        Built a production-ready AWS environment using Infrastructure as Code,
+        containerization, Kubernetes and automated deployment workflows.
     </p>
 
+    <div class="project-summary-grid">
 
-    <div class="project-details">
-
-        <div class="project-block">
-
-            <h4>The Goal</h4>
-
+        <div class="project-summary-block">
+            <h4>Goal</h4>
             <p>
-                Build a scalable cloud infrastructure from the ground up
-                while applying modern DevOps practices such as Infrastructure
-                as Code, containerization, orchestration and automated deployment.
+                Build a scalable cloud environment from the ground up while
+                applying modern DevOps practices and automation.
             </p>
-
         </div>
 
-
-        <div class="project-block">
-
-            <h4>Infrastructure as Code</h4>
-
+        <div class="project-summary-block">
+            <h4>What I Implemented</h4>
             <p>
-                Used Terraform to provision AWS networking and infrastructure,
-                including VPCs, public and private subnets, Internet and NAT
-                Gateways, IAM, EC2 instances, Security Groups and Amazon RDS.
+                Provisioned AWS infrastructure with Terraform, configured VPCs,
+                subnets, IAM, EC2 and RDS, containerized the application with Docker,
+                and deployed it to Amazon EKS using Kubernetes.
             </p>
-
         </div>
 
-
-        <div class="project-block">
-
-            <h4>Containers & Kubernetes</h4>
-
+        <div class="project-summary-block">
+            <h4>Skills Gained</h4>
             <p>
-                Containerized a web application using Docker and deployed it
-                to Amazon EKS using Kubernetes Deployments, Services, Ingress
-                and an Application Load Balancer for scalable application delivery.
+                Infrastructure as Code, AWS networking, Docker, Linux administration,
+                containerization, Kubernetes, CI/CD and cloud automation.
             </p>
-
         </div>
 
-
-        <div class="project-block">
-
-            <h4>Automation & CI/CD</h4>
-
+        <div class="project-summary-block">
+            <h4>Outcome</h4>
             <p>
-                Built a CI/CD workflow using GitHub Actions, Git, Docker,
-                Terraform and Kubernetes to automate infrastructure provisioning,
-                application deployment, testing and version-controlled releases.
+                Created a repeatable cloud deployment workflow with automated
+                infrastructure provisioning and containerized application delivery.
             </p>
-
         </div>
 
     </div>
 
-
     <div class="project-tech">
-
-    <span>AWS</span>
-    <span>Terraform</span>
-    <span>Amazon VPC</span>
-    <span>EC2</span>
-    <span>Amazon RDS</span>
-    <span>IAM</span>
-    <span>Docker</span>
-    <span>Amazon EKS</span>
-    <span>Kubernetes</span>
-    <span>GitHub Actions</span>
-    <span>Linux</span>
-
-</div>
-
-<div class="architecture">
-
-    <h4>AWS Cloud & DevOps Project Flow</h4>
-
-    <div class="devops-flow">
-
-        <!-- STAGE 1 -->
-        <div class="flow-stage">
-            <div class="flow-number">01</div>
-            <h5>Environment Setup</h5>
-
-            <div class="flow-tools">
-                <span>AWS Account</span>
-                <span>AWS CLI</span>
-                <span>PowerShell</span>
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>Terraform</span>
-                <span>Docker</span>
-            </div>
-        </div>
-
-        <div class="flow-arrow">→</div>
-
-
-        <!-- STAGE 2 -->
-        <div class="flow-stage">
-            <div class="flow-number">02</div>
-            <h5>Infrastructure as Code</h5>
-
-            <div class="flow-tools">
-                <span>Terraform</span>
-                <span>IAM</span>
-                <span>VPC</span>
-                <span>Subnets</span>
-                <span>Security Groups</span>
-                <span>NAT / IGW</span>
-            </div>
-        </div>
-
-        <div class="flow-arrow">→</div>
-
-
-        <!-- STAGE 3 -->
-        <div class="flow-stage">
-            <div class="flow-number">03</div>
-            <h5>AWS Infrastructure</h5>
-
-            <div class="flow-tools">
-                <span>EC2</span>
-                <span>Linux</span>
-                <span>IAM</span>
-                <span>RDS</span>
-                <span>VPC</span>
-                <span>Networking</span>
-            </div>
-        </div>
-
-        <div class="flow-arrow">→</div>
-
-
-        <!-- STAGE 4 -->
-        <div class="flow-stage">
-            <div class="flow-number">04</div>
-            <h5>Containerization</h5>
-
-            <div class="flow-tools">
-                <span>Docker</span>
-                <span>Container Image</span>
-                <span>Application</span>
-            </div>
-        </div>
-
-        <div class="flow-arrow">→</div>
-
-
-        <!-- STAGE 5 -->
-        <div class="flow-stage">
-            <div class="flow-number">05</div>
-            <h5>Kubernetes Deployment</h5>
-
-            <div class="flow-tools">
-                <span>Amazon EKS</span>
-                <span>Kubernetes</span>
-                <span>Deployments</span>
-                <span>Services</span>
-                <span>Ingress</span>
-                <span>ALB</span>
-            </div>
-        </div>
-
-        <div class="flow-arrow">→</div>
-
-
-        <!-- STAGE 6 -->
-        <div class="flow-stage">
-            <div class="flow-number">06</div>
-            <h5>CI/CD Automation</h5>
-
-            <div class="flow-tools">
-                <span>GitHub</span>
-                <span>GitHub Actions</span>
-                <span>Terraform</span>
-                <span>Docker</span>
-                <span>Kubernetes</span>
-            </div>
-        </div>
-       
-    </div> <!-- closes devops-flow -->
-
-</div> <!-- closes architecture -->
+        <span>AWS</span>
+        <span>Terraform</span>
+        <span>Amazon VPC</span>
+        <span>EC2</span>
+        <span>Amazon RDS</span>
+        <span>IAM</span>
+        <span>Docker</span>
+        <span>Amazon EKS</span>
+        <span>Kubernetes</span>
+        <span>GitHub Actions</span>
+        <span>Linux</span>
+    </div>
 
 </div> <!-- closes PROJECT 01 -->
 
+<div class="project-card">
 
-        <div class="project-card">
+    <p class="project-number">PROJECT 02</p>
 
-            <p class="project-number">PROJECT 02</p>
+    <h3>
+        Enterprise Identity, Endpoint & Infrastructure Migration
+    </h3>
 
-            <h3>
-                Enterprise Identity, Endpoint & Infrastructure Migration
-            </h3>
+    <p class="project-description">
+        Modernized an on-premises environment by migrating identity,
+        endpoints and supporting infrastructure to a cloud-first Microsoft ecosystem.
+    </p>
 
-            <p class="project-description">
-                Led the migration of 120+ Windows devices from an
-                on-premises Active Directory environment to a cloud-first
-                Microsoft Entra ID and Microsoft Intune architecture.
+    <div class="project-summary-grid">
+
+        <div class="project-summary-block">
+            <h4>Goal</h4>
+            <p>
+                Move from traditional on-premises infrastructure to a more
+                secure, manageable and cloud-first environment with minimal user disruption.
             </p>
-
-
-            <div class="project-details">
-
-                <div class="project-block">
-
-                    <h4>The Challenge</h4>
-
-                    <p>
-                        Modernize a traditional on-premises environment while
-                        maintaining user access, preserving user profiles and
-                        data, and minimizing disruption during the migration.
-                    </p>
-
-                </div>
-
-
-                <div class="project-block">
-
-                    <h4>What I Implemented</h4>
-
-                    <p>
-                        Migrated devices from AD domain-joined to Entra-joined,
-                        implemented Intune compliance and enrollment controls,
-                        Conditional Access and Zero Trust security, and supported
-                        the move of printers, file services and infrastructure
-                        toward cloud-based services.
-                    </p>
-
-                </div>
-
-
-                <div class="project-block">
-
-                    <h4>Infrastructure Modernization</h4>
-
-                    <p>
-                        Migrated on-premises printers to Microsoft Universal Print,
-                        moved file shares to cloud storage, provisioned Azure
-                        Virtual Machines and supported LAN/WAN infrastructure,
-                        firewalls, UniFi wireless, DNS and DHCP.
-                    </p>
-
-                </div>
-
-
-                <div class="project-block">
-
-                    <h4>Outcome</h4>
-
-                    <p>
-                        Established a more centralized cloud-first environment
-                        with modern identity, endpoint management and security
-                        controls across more than 120 Windows endpoints.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-tech">
-
-                <span>Microsoft Entra ID</span>
-                <span>Microsoft Intune</span>
-                <span>Active Directory</span>
-                <span>Conditional Access</span>
-                <span>Zero Trust</span>
-                <span>Azure</span>
-                <span>Universal Print</span>
-                <span>DNS/DHCP</span>
-                <span>UniFi</span>
-
-            </div>
-
-<div class="architecture">
-
-    <h4>Migration & Modernization Architecture</h4>
-
-   <div class="architecture">
-
-    <h4>Migration & Modernization Architecture</h4>
-
-    <div class="project-architecture-split">
-
-        <!-- LEFT SIDE -->
-        <div class="architecture-panel">
-
-            <p class="architecture-subtitle">
-                Identity & Endpoint Migration
-            </p>
-
-            <div class="mini-flow">
-
-                <div class="mini-step">
-                    <strong>On-Prem AD</strong>
-                    <span>Existing identity environment</span>
-                </div>
-
-                <div class="mini-arrow">↓</div>
-
-                <div class="mini-step">
-                    <strong>Entra Connect</strong>
-                    <span>Identity synchronization</span>
-                </div>
-
-                <div class="mini-arrow">↓</div>
-
-                <div class="mini-step">
-                    <strong>Entra ID</strong>
-                    <span>Cloud identity</span>
-                </div>
-
-                <div class="mini-arrow">↓</div>
-
-                <div class="mini-step">
-                    <strong>Microsoft Intune</strong>
-                    <span>Endpoint management</span>
-                </div>
-
-                <div class="mini-arrow">↓</div>
-
-                <div class="mini-step">
-                    <strong>Security Controls</strong>
-                    <span>Compliance • CA • Zero Trust</span>
-                </div>
-
-            </div>
-
         </div>
 
-
-        <!-- RIGHT SIDE -->
-        <div class="architecture-panel">
-
-            <p class="architecture-subtitle">
-                Infrastructure Modernization
+        <div class="project-summary-block">
+            <h4>What I Implemented</h4>
+            <p>
+                Migrated 120+ Windows devices from Active Directory to Entra ID,
+                implemented Intune, Conditional Access and Zero Trust controls,
+                and modernized printers, file services and Azure infrastructure.
             </p>
+        </div>
 
-            <div class="modernization-grid">
+        <div class="project-summary-block">
+            <h4>Skills Gained</h4>
+            <p>
+                Cloud migration, endpoint management, identity modernization, DNS, Data migration,
+                security implementation, infrastructure planning, and enterprise change management.
+            </p>
+        </div>
 
-                <div class="modernization-card">
-                    <strong>Printers</strong>
-                    <span>↓</span>
-                    <p>Universal Print</p>
-                </div>
-
-                <div class="modernization-card">
-                    <strong>File Shares</strong>
-                    <span>↓</span>
-                    <p>Cloud Storage</p>
-                </div>
-
-                <div class="modernization-card">
-                    <strong>Servers</strong>
-                    <span>↓</span>
-                    <p>Azure Virtual Machines</p>
-                </div>
-
-                <div class="modernization-card">
-                    <strong>Network</strong>
-                    <span>↓</span>
-                    <p>Firewalls • UniFi • DNS/DHCP</p>
-                </div>
-
-            </div>
-
+        <div class="project-summary-block">
+            <h4>Outcome</h4>
+            <p>
+                Established a centralized cloud-first environment with modern
+                identity, endpoint, and security controls across more than 120 devices, including on-prem 
+                phones and printers to the cloud.
+            </p>
         </div>
 
     </div>
 
-</div>
-       </div> <!-- closes infrastructure-flow -->
+    <div class="project-tech">
+        <span>Microsoft Entra ID</span>
+        <span>Microsoft Intune</span>
+          <span>Site to Site VPN</span>
+        <span>Entra Connect</span>
+        <span>Data loss prevention</span>
+        <span>Active Directory</span>
+        <span>Conditional Access</span>
+        <span>Zero Trust</span>
+        <span>Azure</span>
+        <span>Universal Print</span>
+        <span>DNS/DHCP</span>
+        <span>UniFi</span>
+    </div>
 
-</div> <!-- closes architecture -->
+</div>
 
 </div> <!-- closes PROJECT 02 -->
 
 </div> <!-- closes projects-container -->
 
 </section> <!-- closes projects section -->
+
+    
     <section class="experience" id="experience">
 
     <div class="experience-container">
@@ -1875,8 +1602,6 @@
     </div>
 
 </section>
-    
-    <section class="technologies" id="skills">
 
         <section class="skills-section" id="skills">
 
