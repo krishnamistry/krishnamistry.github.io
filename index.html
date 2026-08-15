@@ -625,6 +625,49 @@
     gap: 12px;
 }
 
+.implementation-steps {
+    position: relative;
+    margin-top: 25px;
+}
+
+.implementation-step {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid #1e293b;
+}
+
+.implementation-step:last-child {
+    border-bottom: none;
+}
+
+.step-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #111827;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.implementation-step h5 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.implementation-step p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+        
 .arch-box {
     flex: 1;
     min-width: 140px;
@@ -688,6 +731,11 @@
 
             .architecture-flow {
     flex-direction: column;
+}
+
+            .implementation-step {
+    grid-template-columns: 45px 1fr;
+    gap: 12px;
 }
 
 .arch-arrow {
@@ -943,6 +991,154 @@
         <span>Kubernetes</span>
         <span>GitHub Actions</span>
         <span>Linux</span>
+
+    </div>
+
+</div>
+
+<div class="architecture">
+
+    <h4>AWS Infrastructure & DevOps Implementation Flow</h4>
+
+    <p class="architecture-subtitle">
+        End-to-end project implementation
+    </p>
+
+    <div class="implementation-steps">
+
+        <div class="implementation-step">
+            <div class="step-number">01</div>
+            <div>
+                <h5>AWS Environment Setup</h5>
+                <p>
+                    Created and configured the AWS environment and prepared
+                    the account for infrastructure deployment.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">02</div>
+            <div>
+                <h5>Local Development Tooling</h5>
+                <p>
+                    Installed and configured Git, GitHub, Terraform, Docker
+                    and required PowerShell CLI tools and supporting libraries.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">03</div>
+            <div>
+                <h5>Git & GitHub Repository Setup</h5>
+                <p>
+                    Created the project repository, configured Git version
+                    control and organized the infrastructure and application code.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">04</div>
+            <div>
+                <h5>AWS Access & Permissions</h5>
+                <p>
+                    Configured IAM users, roles, permissions and AWS access
+                    required for Terraform and infrastructure management.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">05</div>
+            <div>
+                <h5>Infrastructure as Code</h5>
+                <p>
+                    Built Terraform configuration files to define and manage
+                    the AWS infrastructure using Infrastructure as Code.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">06</div>
+            <div>
+                <h5>AWS Infrastructure Deployment</h5>
+                <p>
+                    Provisioned VPCs, public and private subnets, Internet and
+                    NAT Gateways, Security Groups, IAM resources, EC2 instances
+                    and Amazon RDS.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">07</div>
+            <div>
+                <h5>Linux & EC2 Configuration</h5>
+                <p>
+                    Configured Linux EC2 instances, SSH access, system settings
+                    and security hardening required for the environment.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">08</div>
+            <div>
+                <h5>Application Containerization</h5>
+                <p>
+                    Containerized the application using Docker and prepared
+                    the container image for Kubernetes deployment.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">09</div>
+            <div>
+                <h5>Kubernetes & Amazon EKS</h5>
+                <p>
+                    Deployed the containerized application to Amazon EKS using
+                    Kubernetes Deployments, Services and Ingress.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">10</div>
+            <div>
+                <h5>Application Load Balancing</h5>
+                <p>
+                    Configured the Application Load Balancer and Kubernetes
+                    ingress components to expose and route traffic to the application.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">11</div>
+            <div>
+                <h5>CI/CD Automation</h5>
+                <p>
+                    Created GitHub Actions workflows using Git, Docker,
+                    Terraform and Kubernetes to automate infrastructure
+                    provisioning and application deployment.
+                </p>
+            </div>
+        </div>
+
+        <div class="implementation-step">
+            <div class="step-number">12</div>
+            <div>
+                <h5>Testing & Validation</h5>
+                <p>
+                    Validated infrastructure deployment, container operation,
+                    Kubernetes workloads and automated deployment workflows.
+                </p>
+            </div>
+        </div>
 
     </div>
 
