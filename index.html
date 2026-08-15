@@ -6,1772 +6,936 @@
 
     <title>Krishna Mistry | IT Systems Administrator</title>
 
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2308090a'/%3E%3Ctext x='50' y='66' font-family='monospace' font-size='40' font-weight='700' fill='%23d7ff3f' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #08090a;
+            --bg-raised: #0c0d0e;
+            --ink: #f3f1ea;
+            --muted: #9c988c;
+            --faint: #5c584f;
+            --line: #221f1a;
+            --line-strong: #38342b;
+            --accent: #d7ff3f;
+            --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+            --display: 'Space Grotesk', 'Inter', sans-serif;
+            --sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+            --ease: cubic-bezier(.16,1,.3,1);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b1120;
-            color: #ffffff;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--sans);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        section {
-    scroll-margin-top: 80px;
-}
-        
-       nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 8%;
-    border-bottom: 1px solid #1e293b;
-    background: rgba(11, 17, 32, 0.95);
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-        
-
-       .logo {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.logo:hover {
-    color: #38bdf8;
-}
-
-        
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 15px;
-            transition: 0.2s;
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(215, 255, 63, .06) 1px, transparent 1px);
+            background-size: 32px 32px;
+            -webkit-mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, black 30%, transparent 85%);
+            mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, black 30%, transparent 85%);
         }
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+        .nav, main, footer { position: relative; z-index: 1; }
 
-.hero {
-    width: 100%;
-    padding: 65px 4% 75px;
-}
+        section { scroll-margin-top: 90px; }
 
-.hero-layout {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
+        .wrap { max-width: 1240px; margin: 0 auto; padding: 0 6%; }
 
-    display: grid;
-    grid-template-columns: 40% 60%;
-    gap: 55px;
-    align-items: center;
-}
-        
-.hero-content {
-    width: 100%;
-    max-width: none;
-}
+        ::selection { background: var(--accent); color: #08090a; }
 
-.hero-video {
-    width: 100%;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid #334155;
-    background: #020617;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
-}
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--line-strong); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-.hero-video video {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-        
-.hero-tag {
-    color: #38bdf8;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    margin-bottom: 18px;
-}
+        h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; }
 
-.hero h1 {
-    font-size: clamp(54px, 4vw, 72px);
-}
-
-.hero h2 {
-    font-size: clamp(26px, 2vw, 34px);
-}
-
-.hero-description {
-    max-width: 620px;
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 28px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.25s ease;
-}
-
-.btn-primary,
-.btn-secondary {
-    background: #38bdf8;
-    color: #08111f;
-    border: 1px solid #38bdf8;
-    box-shadow: 0 0 18px rgba(56, 189, 248, 0.25);
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-    background: #7dd3fc;
-    color: #08111f;
-    border-color: #7dd3fc;
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
-    transform: translateY(-2px);
-}
-        
-        .technologies {
-            padding: 40px 8% 70px;
-            border-top: 1px solid #1e293b;
-        }
-
-        .section-label {
-            color: #64748b;
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .skills {
+        /* ===== NAV ===== */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 6%;
+            border-bottom: 1px solid var(--line);
+            background: rgba(8, 9, 10, .82);
+            backdrop-filter: blur(10px);
+            transition: border-color .3s var(--ease), background .3s var(--ease);
+        }
+        .nav.scrolled { background: rgba(8, 9, 10, .96); border-bottom-color: var(--line-strong); }
+
+        .brand {
+            font-family: var(--mono);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .brand .cursor { color: var(--accent); animation: blink 1.1s steps(1) infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+            transition: color .25s var(--ease), border-color .25s var(--ease);
+        }
+        .nav-links a .n { color: var(--accent); font-size: 11px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--ink); border-color: var(--accent); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 38px;
+            height: 34px;
+            background: transparent;
+            border: 1px solid var(--line-strong);
+            cursor: pointer;
+            padding: 0;
+        }
+        .nav-toggle span { display: block; width: 16px; height: 2px; margin: 0 auto; background: var(--muted); transition: transform .3s var(--ease), opacity .3s var(--ease); }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ===== HERO ===== */
+        .hero { padding: 76px 0 100px; }
+        .hero-top {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+        .hero-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 6%;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 64px;
+            align-items: center;
         }
 
-        .skill {
-            background: #111827;
-            border: 1px solid #1e293b;
-            padding: 9px 15px;
-            border-radius: 6px;
-            color: #cbd5e1;
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            border: 1px solid var(--line-strong);
+            padding: 8px 14px;
+            margin-bottom: 26px;
+            animation: fadeUp .7s var(--ease) both;
+        }
+
+        .hero-name {
+            font-size: clamp(30px, 7.4vw, 96px);
+            line-height: .98;
+            margin-bottom: 22px;
+            white-space: nowrap;
+            animation: fadeUp .7s var(--ease) .08s both;
+        }
+        .hero-name .mark {
+            background: var(--accent);
+            color: #08090a;
+            padding: 0 12px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .hero-role {
+            font-family: var(--mono);
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: clamp(14px, 1.3vw, 18px);
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            animation: fadeUp .7s var(--ease) .16s both;
+        }
+
+        .hero-desc {
+            max-width: 560px;
+            color: var(--muted);
+            font-size: 16.5px;
+            line-height: 1.8;
+            margin-bottom: 38px;
+            animation: fadeUp .7s var(--ease) .24s both;
+        }
+
+        .hero-links { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); animation: fadeUp .7s var(--ease) .32s both; }
+        .link-row {
+            font-family: var(--mono);
             font-size: 14px;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 16px 24px 16px 0;
+            margin-right: 28px;
+            border-bottom: 1px solid var(--line);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            transition: color .25s var(--ease);
+        }
+        .link-row::after { content: '\2192'; color: var(--accent); transition: transform .25s var(--ease); }
+        .link-row:hover { color: var(--accent); }
+        .link-row:hover::after { transform: translateX(4px); }
+
+        .hero-media { animation: fadeUp .8s var(--ease) .2s both; }
+        .media-frame {
+            border: 1px solid var(--line-strong);
+            background: #050506;
+            transition: transform .4s var(--ease), border-color .4s var(--ease);
+        }
+        .media-frame:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .media-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+        .media-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+        .media-bar em { margin-left: 10px; font-family: var(--mono); font-size: 11px; color: var(--faint); font-style: normal; }
+        .media-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== SECTION HEAD ===== */
+        .about, .projects, .experience, .credentials, .skills, .contact { padding: 68px 0; }
+        .projects, .skills { background: var(--bg-raised); }
+
+        .section-head { border-top: 1px solid var(--line); padding-top: 26px; margin-bottom: 56px; }
+        .section-head .index { font-family: var(--mono); font-size: 13px; color: var(--accent); display: block; margin-bottom: 12px; }
+        .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+        .section-head h2 { font-size: clamp(28px, 3.2vw, 42px); margin-top: 10px; }
+
+        /* ===== ABOUT ===== */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+        .col-label { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+        .about-col h3 { font-size: 23px; margin-bottom: 18px; }
+        .about-col p { color: var(--muted); font-size: 15.5px; line-height: 1.8; margin-bottom: 14px; }
+
+        .spec-list { margin-top: 26px; border-top: 1px solid var(--line); }
+        .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+        .spec-row dt { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+        .spec-row dd { font-family: var(--display); font-weight: 700; font-size: 17px; color: var(--ink); text-align: right; white-space: nowrap; }
+
+        /* ===== PROJECTS ===== */
+        .project { padding: 46px 0; border-bottom: 1px solid var(--line); }
+        .project:first-of-type { border-top: 1px solid var(--line); }
+        .project-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+        .project-num { font-family: var(--mono); font-size: 12.5px; color: var(--accent); letter-spacing: 2px; }
+        .project-head h3 { font-size: clamp(21px, 2.3vw, 29px); }
+        .project-desc { color: var(--muted); font-size: 16px; max-width: 820px; margin-bottom: 32px; line-height: 1.75; }
+
+        .project-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+            margin-bottom: 30px;
+        }
+        .detail { padding: 20px 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .detail-label { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .detail p:last-child { color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+        .tags span {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid var(--line-strong);
+            padding: 6px 11px;
+            transition: border-color .2s var(--ease), color .2s var(--ease);
+        }
+        .tags span:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ===== EXPERIENCE ===== */
+        .timeline { border-top: 1px solid var(--line); }
+        .role { padding: 42px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 200px 1fr; gap: 40px; }
+        .role-date { font-family: var(--mono); font-size: 12.5px; color: var(--accent); letter-spacing: 1px; }
+        .role h3 { font-size: 23px; margin-bottom: 6px; }
+        .role-company { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
+        .role ul { padding-left: 18px; max-width: 820px; }
+        .role li { color: var(--muted); font-size: 14.5px; line-height: 1.75; margin-bottom: 10px; }
+        .role .tags { margin-top: 22px; }
+
+        /* ===== CREDENTIALS ===== */
+        .credentials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+        .sub-title { font-size: 19px; margin-bottom: 22px; }
+
+        .cert-list { list-style: none; border-top: 1px solid var(--line); }
+        .cert-list li { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; flex-wrap: wrap; }
+        .cert-provider { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+        .cert-name { color: var(--ink); font-size: 14.5px; text-align: right; }
+
+        .edu-item { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 30px; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-date { font-family: var(--mono); font-size: 11.5px; color: var(--accent); margin-bottom: 8px; letter-spacing: .4px; }
+        .edu-item h4 { font-size: 18px; margin-bottom: 6px; }
+        .edu-item p { color: var(--muted); font-size: 14px; margin-bottom: 3px; }
+        .edu-item .gpa { color: var(--faint); font-size: 12.5px; }
+
+        /* ===== SKILLS ===== */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 60px; }
+        .skill-group { padding: 22px 0; border-bottom: 1px solid var(--line); }
+        .skill-group h3 { font-size: 15.5px; margin-bottom: 14px; }
+        .skill-line span { font-family: var(--mono); font-size: 13px; color: var(--muted); transition: color .2s var(--ease); }
+        .skill-line span:hover { color: var(--accent); }
+        .skill-line span:not(:last-child)::after { content: ' \00B7 '; color: var(--line-strong); }
+
+        /* ===== CONTACT ===== */
+        .contact { text-align: center; }
+        .contact .eyebrow { display: block; }
+        .contact h2 { font-size: clamp(28px, 4vw, 44px); margin: 14px 0 18px; }
+        .contact-desc { color: var(--muted); max-width: 640px; margin: 0 auto 34px; font-size: 16px; line-height: 1.75; }
+        .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .contact-links .link-row { border-top: 1px solid var(--line); padding-top: 16px; margin-right: 0; }
+        .contact-links .link-row::after { content: '\2197'; }
+
+        footer { padding: 30px 6%; border-top: 1px solid var(--line); text-align: center; }
+        footer p { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .brand .cursor { animation: none; }
+            .hero-tag, .hero-name, .hero-role, .hero-desc, .hero-links, .hero-media { animation: none; opacity: 1; transform: none; }
         }
 
-        .about {
-    padding: 90px 8%;
-    background: #0f172a;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.about-header {
-    margin-bottom: 40px;
-}
-
-.about-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.about-header h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.about-text p {
-    color: #94a3b8;
-    font-size: 17px;
-    margin-bottom: 18px;
-}
-.about-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-}
-
-.about-panel {
-    background: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 14px;
-    padding: 30px;
-}
-
-.about-label {
-    color: #38bdf8;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.about-panel h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-}
-
-.about-points p {
-    color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-        
-
-.stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-}
-
-.stat-card {
-    background: #111827;
-    border: 1px solid #1e293b;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.stat-card h3 {
-    color: #38bdf8;
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.stat-card p {
-    color: #94a3b8;
-    font-size: 14px;
-}
-        .projects {
-    padding: 90px 8%;
-    background: #0b1120;
-}
-
-.projects-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.projects-header {
-    margin-bottom: 45px;
-}
-
-.projects-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.projects-header h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.project-card {
-    background: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 14px;
-    padding: 35px;
-    margin-bottom: 30px;
-}
-
-.project-number {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.project-card h3 {
-    font-size: 27px;
-    margin-bottom: 18px;
-}
-
-.project-description {
-    color: #94a3b8;
-    font-size: 16px;
-    margin-bottom: 25px;
-    max-width: 900px;
-}
-
-.project-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.project-block h4 {
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.project-block p {
-    color: #94a3b8;
-    font-size: 15px;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.project-tech span {
-    background: #0f172a;
-    border: 1px solid #334155;
-    padding: 7px 12px;
-    border-radius: 6px;
-    color: #cbd5e1;
-    font-size: 13px;
-}
-
-     
-.project-summary-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.project-summary-block {
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
-    padding: 18px;
-}
-
-.project-summary-block h4 {
-    color: #38bdf8;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.project-summary-block p {
-    color: #94a3b8;
-    font-size: 14px;
-    line-height: 1.6;
-}
-        
-.modernization-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-.modernization-card {
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-}
-
-.modernization-card strong {
-    display: block;
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.modernization-card span {
-    display: block;
-    color: #38bdf8;
-    margin: 4px 0;
-}
-
-.modernization-card p {
-    color: #94a3b8;
-    font-size: 12px;
-}
-
-        .experience {
-    padding: 90px 8%;
-    background: #0f172a;
-}
-
-.experience-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.experience-header {
-    margin-bottom: 50px;
-}
-
-.experience-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.experience-header h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.timeline {
-    position: relative;
-    border-left: 2px solid #1e293b;
-    padding-left: 35px;
-}
-
-.experience-item {
-    position: relative;
-    margin-bottom: 55px;
-}
-
-.experience-item:last-child {
-    margin-bottom: 0;
-}
-
-.experience-dot {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: #38bdf8;
-    border-radius: 50%;
-    left: -43px;
-    top: 7px;
-    box-shadow: 0 0 0 6px #0f172a;
-}
-
-.experience-date {
-    color: #38bdf8;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 7px;
-}
-
-.experience-item h3 {
-    font-size: 24px;
-    margin-bottom: 4px;
-}
-
-.company {
-    color: #cbd5e1;
-    font-size: 16px;
-    margin-bottom: 17px;
-}
-
-.experience-item ul {
-    padding-left: 20px;
-    max-width: 900px;
-}
-
-.experience-item li {
-    color: #94a3b8;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-.experience-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 20px;
-}
-
-.experience-tags span {
-    background: #111827;
-    border: 1px solid #334155;
-    padding: 6px 11px;
-    border-radius: 6px;
-    color: #cbd5e1;
-    font-size: 12px;
-}
-
-        .credentials {
-    padding: 90px 8%;
-    background: #0b1120;
-}
-
-.credentials-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.credentials-header {
-    margin-bottom: 45px;
-}
-
-.credentials-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.credentials-header h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.credentials-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
-
-.credentials-title {
-    font-size: 20px;
-    margin-bottom: 22px;
-}
-
-.cert-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.cert-card {
-    background: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.cert-provider {
-    color: #38bdf8;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 7px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cert-card h4 {
-    color: #ffffff;
-    font-size: 15px;
-    line-height: 1.4;
-}
-
-.education-card {
-    border-left: 2px solid #38bdf8;
-    padding-left: 20px;
-    margin-bottom: 30px;
-}
-
-.education-date {
-    color: #38bdf8;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-.education-card h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.education-card p {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 3px;
-}
-
-.education-card .gpa {
-    color: #64748b;
-    font-size: 13px;
-}
-
-        .contact {
-    padding: 90px 8%;
-    background: #0f172a;
-    text-align: center;
-}
-
-.contact-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.contact-tag {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.contact h2 {
-    font-size: 40px;
-    margin: 10px 0 18px;
-}
-
-.contact-description {
-    color: #94a3b8;
-    font-size: 17px;
-    margin-bottom: 32px;
-}
-
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.footer {
-    padding: 25px 8%;
-    background: #0b1120;
-    border-top: 1px solid #1e293b;
-    text-align: center;
-}
-
-.footer p {
-    color: #64748b;
-    font-size: 13px;
-}
-
-        .skills-section {
-    padding: 90px 8%;
-    background: #0b1120;
-}
-
-.skills-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.skills-header {
-    margin-bottom: 45px;
-}
-
-.skills-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.skills-header h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.skills-category {
-    background: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-    padding: 25px;
-}
-
-.skills-category h3 {
-    font-size: 18px;
-    margin-bottom: 18px;
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-}
-
-.skills-list span {
-    background: #0f172a;
-    border: 1px solid #334155;
-    color: #cbd5e1;
-    padding: 7px 11px;
-    border-radius: 6px;
-    font-size: 13px;
-}
-
-        .architecture {
-    margin-top: 30px;
-    padding: 25px;
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-}
-
-.architecture h4 {
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-.architecture-flow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.implementation-steps {
-    position: relative;
-    margin-top: 25px;
-}
-
-.implementation-step {
-    display: grid;
-    grid-template-columns: 55px 1fr;
-    gap: 18px;
-    padding: 20px 0;
-    border-bottom: 1px solid #1e293b;
-}
-
-
-        
-.arch-box {
-    flex: 1;
-    min-width: 140px;
-    background: #111827;
-    border: 1px solid #334155;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    color: #cbd5e1;
-    font-size: 14px;
-}
-
-        .devops-flow {
-    display: flex;
-    align-items: stretch;
-    gap: 12px;
-    margin-top: 30px;
-    overflow-x: auto;
-    padding-bottom: 15px;
-}
-
-.flow-stage {
-    flex: 1;
-    min-width: 175px;
-    background: #111827;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-}
-
-.flow-number {
-    width: 34px;
-    height: 34px;
-    margin: 0 auto 12px;
-    border: 1px solid #38bdf8;
-    border-radius: 50%;
-    color: #38bdf8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.flow-stage h5 {
-    color: #ffffff;
-    font-size: 15px;
-    margin-bottom: 15px;
-}
-
-.flow-tools {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.flow-tools span {
-    color: #94a3b8;
-    font-size: 12px;
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    padding: 6px 8px;
-    border-radius: 5px;
-}
-
-.flow-arrow {
-    color: #38bdf8;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-        
-.arch-arrow {
-    color: #38bdf8;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-        .architecture-subtitle {
-    color: #38bdf8;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 18px;
-    margin-top: 5px;
-}
-
-.second-flow {
-    margin-top: 35px;
-}
-
-.infrastructure-flow .arch-box {
-    min-height: 110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.arch-box strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-        .video-portfolio {
-    padding: 90px 8%;
-    background: #0b1120;
-}
-
-.video-container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.video-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-.video-header span {
-    color: #38bdf8;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-
-.video-header h2 {
-    font-size: 38px;
-    margin: 10px 0 12px;
-}
-
-.video-header p {
-    color: #94a3b8;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.video-frame {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #334155;
-    background: #020617;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-}
-
-.video-frame video {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
+        @media (max-width: 1024px) {
+            .project-detail-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .role { grid-template-columns: 1fr; gap: 14px; }
+            .about-grid { grid-template-columns: 1fr; gap: 50px; }
+            .credentials-grid { grid-template-columns: 1fr; gap: 50px; }
+            .skills-grid { grid-template-columns: 1fr; gap: 0; }
+        }
 
         @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav { flex-wrap: wrap; }
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                order: 3;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                gap: 0;
+                transition: max-height .35s var(--ease), opacity .3s var(--ease);
+            }
+            .nav-links.open { max-height: 420px; opacity: 1; margin-top: 18px; }
+            .nav-links a { width: 100%; padding: 14px 0; border-bottom: 1px solid var(--line); }
+            .nav-links a:hover, .nav-links a.active { border-bottom-color: var(--accent); }
 
-    nav .nav-links {
-        display: none;
-    }
-
-            .project-summary-grid {
-    grid-template-columns: 1fr;
-}
-
-            .about-split {
-    grid-template-columns: 1fr;
-}
-
-.modernization-grid {
-    grid-template-columns: 1fr;
-}
-            
-    .hero {
-        min-height: auto;
-        padding: 45px 6%;
-    }
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .hero-video {
-        width: 100%;
-    }
-
-    .architecture-flow {
-        flex-direction: column;
-    }
-
-    .devops-flow {
-        flex-direction: column;
-    }
-
-    .flow-stage {
-        width: 100%;
-    }
-
-    .flow-arrow {
-        transform: rotate(90deg);
-        padding: 3px;
-    }
-
-    .arch-arrow {
-        transform: rotate(90deg);
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .credentials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cert-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-description {
-        font-size: 16px;
-    }
-
-    .project-details {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-        
+            .project-detail-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="#" class="logo">KM</a>
+    <header class="nav" id="top">
+        <a href="#" class="brand">KM<span class="cursor">_</span></a>
 
-       <div class="nav-links">
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#skills">Skills</a>
-<a href="#credentials">Credentials</a>
-<a href="#contact">Contact</a>
-</div>
-    </nav>
+        <nav class="nav-links" id="navLinks">
+            <a href="#about"><span class="n">01</span>About</a>
+            <a href="#projects"><span class="n">02</span>Projects</a>
+            <a href="#experience"><span class="n">03</span>Experience</a>
+            <a href="#skills"><span class="n">04</span>Skills</a>
+            <a href="#credentials"><span class="n">05</span>Credentials</a>
+            <a href="#contact"><span class="n">06</span>Contact</a>
+        </nav>
 
-<section class="hero" id="home">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
 
-    <div class="hero-layout">
+    <main>
 
-        <div class="hero-content">
+        <section class="hero" id="home">
+            <div class="hero-top">
+                <p class="hero-tag">CLOUD &bull; INFRASTRUCTURE &bull; SECURITY &bull; AUTOMATION</p>
 
-            <p class="hero-tag">
-                CLOUD • INFRASTRUCTURE • SECURITY • AUTOMATION
-            </p>
+                <h1 class="hero-name">Krishna <span class="mark">Mistry</span></h1>
 
-            <h1>Krishna Mistry</h1>
+                <p class="hero-role">IT &amp; Cloud Professional</p>
+            </div>
 
-            <h2>IT & Cloud Professional</h2>
+            <div class="hero-grid">
 
-            <p class="hero-description">
-                IT Systems Administrator with 6+ years of experience supporting
-                enterprise infrastructure, endpoints, networks,
-                identity and security. Experienced across Cloud platforms including AWS, Azure,
-                and GCP. Proven expertise in cloud/data migrations, infrastructure automation, 
-                endpoint management, identity and access management, and cybersecurity
-                with a focus on building
-                secure, reliable and efficient IT environments.
-            </p>
+                <div class="hero-content">
 
-           <div class="buttons">
-
-    <a href="mailto:krishnamistry712@gmail.com"
-       class="btn btn-primary">
-        Email
-    </a>
-
-    <a href="https://www.linkedin.com/in/krishna-mistry-7482aa200"
-       class="btn btn-primary"
-       target="_blank">
-        LinkedIn
-    </a>
-
-    <a href="https://github.com/krishnamistry"
-       class="btn btn-primary"
-       target="_blank">
-        GitHub
-    </a>
-
-    <a href="./Krishna Mistry- Professional Resume.pdf"
-       class="btn btn-primary"
-       target="_blank">
-        Resume
-    </a>
-
-</div>
-
-        </div>
-
-
-        <div class="hero-video">
-
-            <video
-                autoplay
-                playsinline
-                controls
-                preload="auto">
-
-                <source src="Krishna-Mistry-Portfolio.mp4" type="video/mp4">
-
-            </video>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="about" id="about">
-
-    <div class="about-container">
-
-        <div class="about-header">
-            <span>ABOUT ME</span>
-            <h2>Technology, curiosity and a little more about me!</h2>
-        </div>
-
-          <div class="about-split">
-<!-- TECH SIDE -->
-            <div class="about-panel">
-
-                <p class="about-label">TECH</p>
-
-                <h3>How I work with technology</h3>
-
-                <div class="about-points">
-                    <p>
-                        I enjoy understanding how systems connect and finding
-                        practical ways to make technology more reliable, secure
-                        and easier to manage.
+                    <p class="hero-desc">
+                        IT Systems Administrator with 6+ years of experience supporting
+                        enterprise infrastructure, endpoints, networks,
+                        identity and security. Experienced across Cloud platforms including AWS, Azure,
+                        and GCP. Proven expertise in cloud/data migrations, infrastructure automation,
+                        endpoint management, identity and access management, and cybersecurity
+                        with a focus on building
+                        secure, reliable and efficient IT environments.
                     </p>
 
-                    <p>
-                        I’m constantly experimenting with cloud, automation and
-                        DevOps tools to improve the way I build and solve problems.
-                    </p>
+                    <div class="hero-links">
+                        <a href="mailto:krishnamistry712@gmail.com" class="link-row">Email</a>
+                        <a href="https://www.linkedin.com/in/krishna-mistry-7482aa200" class="link-row" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/krishnamistry" class="link-row" target="_blank">GitHub</a>
+                        <a href="./Krishna Mistry- Professional Resume.pdf" class="link-row" target="_blank">Resume</a>
+                    </div>
+
                 </div>
 
-                <div class="stats">
+                <div class="hero-media">
+                    <div class="media-frame">
+                        <div class="media-bar">
+                            <span></span><span></span><span></span>
+                            <em>Krishna-Mistry-Portfolio.mp4</em>
+                        </div>
+                        <video autoplay playsinline controls preload="auto">
+                            <source src="Krishna-Mistry-Portfolio.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
 
-                    <div class="stat-card">
-                        <h3>6+</h3>
-                        <p>Years in IT & Cloud</p>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <span class="index">01</span>
+                    <p class="eyebrow">ABOUT ME</p>
+                    <h2>Technology, curiosity and a little more about me!</h2>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-col">
+                        <p class="col-label">Tech</p>
+                        <h3>How I work with technology</h3>
+
+                        <p>
+                            I enjoy understanding how systems connect and finding
+                            practical ways to make technology more reliable, secure
+                            and easier to manage.
+                        </p>
+
+                        <p>
+                            I’m constantly experimenting with cloud, automation and
+                            DevOps tools to improve the way I build and solve problems.
+                        </p>
+
+                        <dl class="spec-list">
+                            <div class="spec-row"><dt>Years in IT &amp; Cloud</dt><dd>6+</dd></div>
+                            <div class="spec-row"><dt>Technical Support Responsibility</dt><dd>L3</dd></div>
+                            <div class="spec-row"><dt>Experienced acroess both envionments</dt><dd>MSP + Internal IT</dd></div>
+                            <div class="spec-row"><dt>Cloud &bull; Automation &bull; DevOps</dt><dd>Build &rarr; Automate</dd></div>
+                        </dl>
                     </div>
 
-                    <div class="stat-card">
-                        <h3>L3</h3>
-                        <p>Technical Support Responsibility</p>
-                    </div>
+                    <div class="about-col">
+                        <p class="col-label">Beyond Tech</p>
+                        <h3>What keeps me interesting</h3>
 
-                    <div class="stat-card">
-                        <h3>MSP + Internal IT</h3>
-                        <p>Experienced acroess both envionments</p>
-                    </div>
+                        <p>
+                            I’ve competed in Judo at the national level, which taught
+                            me discipline, focus, and how to stay composed under pressure.
+                        </p>
 
-                    <div class="stat-card">
-                        <h3>Build → Automate</h3>
-                        <p>Cloud • Automation • DevOps</p>
+                        <p>
+                            Outside work, I enjoy gaming, travelling, exploring new technology,
+                            and experimenting with ideas just for the fun of building them.
+                        </p>
+
+                        <dl class="spec-list">
+                            <div class="spec-row"><dt>National-Level Judo</dt><dd>National&#129357;</dd></div>
+                            <div class="spec-row"><dt>Gaming &amp; Strategy</dt><dd>Strategy&#127918;</dd></div>
+                            <div class="spec-row"><dt>&#9992;&#65039;Always Experimenting &amp; Learning</dt><dd>Exploring</dd></div>
+                            <div class="spec-row"><dt>&#128161; Always Learning &amp; Experimenting</dt><dd>Curious&#128161;</dd></div>
+                        </dl>
                     </div>
 
                 </div>
 
             </div>
+        </section>
 
-              <!-- NON-TECH SIDE -->
-            <div class="about-panel">
+        <section class="projects" id="projects">
+            <div class="wrap">
 
-                <p class="about-label">BEYOND TECH</p>
-
-                <h3>What keeps me interesting</h3>
-
-                <div class="about-points">
-                    <p>
-                        I’ve competed in Judo at the national level, which taught
-                        me discipline, focus, and how to stay composed under pressure.
-                    </p>
-
-                    <p>
-                        Outside work, I enjoy gaming, travelling, exploring new technology,
-                        and experimenting with ideas just for the fun of building them.
-                    </p>
+                <div class="section-head">
+                    <span class="index">02</span>
+                    <p class="eyebrow">Featured Projects</p>
                 </div>
 
-                <div class="stats">
+                <article class="project">
 
-                    <div class="stat-card">
-                        <h3>National🥋</h3>
-                        <p>National-Level Judo</p>
+                    <div class="project-head">
+                        <span class="project-num">PROJECT 01</span>
+                        <h3>Production-Ready AWS Infrastructure &amp; DevOps Platform</h3>
                     </div>
 
-                    <div class="stat-card">
-                        <h3>Strategy🎮</h3>
-                        <p>Gaming & Strategy</p>
+                    <p class="project-desc">
+                        Built a production-ready AWS environment using Infrastructure as Code,
+                        containerization, Kubernetes and automated deployment workflows.
+                    </p>
+
+                    <div class="project-detail-grid">
+                        <div class="detail">
+                            <p class="detail-label">Goal</p>
+                            <p>
+                                Build a scalable cloud environment from the ground up while
+                                applying modern DevOps practices and automation.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">What I Implemented</p>
+                            <p>
+                                Provisioned AWS infrastructure with Terraform, configured VPCs,
+                                subnets, IAM, EC2 and RDS, containerized the application with Docker,
+                                and deployed it to Amazon EKS using Kubernetes.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">Skills Gained</p>
+                            <p>
+                                Infrastructure as Code, AWS networking, Docker, Linux administration,
+                                containerization, Kubernetes, CI/CD and cloud automation.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">Outcome</p>
+                            <p>
+                                Created a repeatable cloud deployment workflow with automated
+                                infrastructure provisioning and containerized application delivery.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="stat-card">
-                        <h3>Exploring</h3>
-                        <p>✈️Always Experimenting & Learning</p>
+                    <div class="tags">
+                        <span>AWS</span>
+                        <span>Terraform</span>
+                        <span>Amazon VPC</span>
+                        <span>EC2</span>
+                        <span>Amazon RDS</span>
+                        <span>IAM</span>
+                        <span>Docker</span>
+                        <span>Amazon EKS</span>
+                        <span>Kubernetes</span>
+                        <span>GitHub Actions</span>
+                        <span>Linux</span>
                     </div>
 
-                        <div class="stat-card">
-        <h3>Curious💡</h3>
-        <p>💡 Always Learning & Experimenting</p>
-    </div>
+                </article>
+
+                <article class="project">
+
+                    <div class="project-head">
+                        <span class="project-num">PROJECT 02</span>
+                        <h3>Enterprise Identity, Endpoint &amp; Infrastructure Migration</h3>
+                    </div>
+
+                    <p class="project-desc">
+                        Modernized an on-premises environment by migrating identity,
+                        endpoints and supporting infrastructure to a cloud-first Microsoft ecosystem.
+                    </p>
+
+                    <div class="project-detail-grid">
+                        <div class="detail">
+                            <p class="detail-label">Goal</p>
+                            <p>
+                                Move from traditional on-premises infrastructure to a more
+                                secure, manageable and cloud-first environment with minimal user disruption.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">What I Implemented</p>
+                            <p>
+                                Migrated 120+ Windows devices from Active Directory to Entra ID,
+                                implemented Intune, Conditional Access and Zero Trust controls,
+                                and modernized printers, file services and Azure infrastructure.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">Skills Gained</p>
+                            <p>
+                                Cloud migration, endpoint management, identity modernization, DNS, Data migration,
+                                security implementation, infrastructure planning, and enterprise change management.
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <p class="detail-label">Outcome</p>
+                            <p>
+                                Established a centralized cloud-first environment with modern
+                                identity, endpoint, and security controls across more than 120 devices, including on-prem
+                                phones and printers to the cloud.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tags">
+                        <span>Microsoft Entra ID</span>
+                        <span>Microsoft Intune</span>
+                        <span>Site to Site VPN</span>
+                        <span>Entra Connect</span>
+                        <span>Data loss prevention</span>
+                        <span>Active Directory</span>
+                        <span>Conditional Access</span>
+                        <span>Zero Trust</span>
+                        <span>Azure</span>
+                        <span>Universal Print</span>
+                        <span>DNS/DHCP</span>
+                        <span>UniFi</span>
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
+
+        <section class="experience" id="experience">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <span class="index">03</span>
+                    <p class="eyebrow">Professional Experience</p>
+                    <h2>Professional career</h2>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="role">
+                        <div>
+                            <p class="role-date">APRIL 2024 &mdash; PRESENT</p>
+                        </div>
+                        <div>
+                            <h3>IT Systems Administrator</h3>
+                            <p class="role-company">HD Mutual Insurance Company &bull; Canada</p>
+
+                            <ul>
+                                <li>
+                                    Serve as the sole IT Systems Administrator providing
+                                    L3 technical support to 120+ users across Microsoft 365,
+                                    Windows, macOS, Entra ID, Intune and enterprise applications.
+                                </li>
+                                <li>
+                                    Manage identity and access, application deployment,
+                                    onboarding/offboarding, endpoints, licensing and
+                                    user lifecycle processes.
+                                </li>
+                                <li>
+                                    Support employee onboarding and offboarding through account provisioning/deprovisioning,
+                                    device configuration, and license administration; maintain IT hardware inventory records,
+                                    ensuring accurate asset assignment and software entitlement tracking.
+                                </li>
+                                <li>
+                                    Engineered AI-powered IT support automation using Microsoft Graph API,
+                                    Power Automate, REST APIs, and Copilot Studio,
+                                    enabling self-service workflows and reducing manual effort in the service desk.
+                                </li>
+                                <li>
+                                    Implemented Intune, Conditional Access, Zero Trust,
+                                    MDM/MAM, RBAC, SSO, SSPR and Entra PIM, contributing
+                                    to an increase in Microsoft Defender Secure Score
+                                    from 45% to 90%.
+                                </li>
+                                <li>
+                                    Administer Jira Cloud, managing projects,
+                                    workflows, automations, and JPD implementation as the Continual Improvement Register (CIR).
+                                </li>
+                            </ul>
+
+                            <div class="tags">
+                                <span>Microsoft 365</span>
+                                <span>Azure</span>
+                                <span>Entra ID</span>
+                                <span>Intune</span>
+                                <span>Defender</span>
+                                <span>PowerShell</span>
+                                <span>Graph API</span>
+                                <span>Power Automate</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role">
+                        <div>
+                            <p class="role-date">SEPTEMBER 2019 &mdash; APRIL 2024</p>
+                        </div>
+                        <div>
+                            <h3>Tier 2 IT Analyst</h3>
+                            <p class="role-company">Fully Managed by TELUS Business &bull; Canada</p>
+
+                            <ul>
+                                <li>
+                                    Progressed from Tier 1 to Tier 2 within one year
+                                    based on technical performance.
+                                </li>
+                                <li>
+                                    Provided L2 technical support across Microsoft 365, ServiceNow,
+                                    Cisco, Windows Server, networking, VPN, DNS/DHCP, Exchange Online,
+                                    backups, and enterprise environments.
+                                </li>
+                                <li>
+                                    Diagnosed complex hardware, software, network and
+                                    infrastructure incidents while performing root cause
+                                    analysis and maintaining SLA requirements.
+                                </li>
+                                <li>
+                                    Supported laptops, printers, networking equipment,
+                                    endpoint peripherals, backups and recovery processes.
+                                </li>
+                            </ul>
+
+                            <div class="tags">
+                                <span>Microsoft 365</span>
+                                <span>Windows Server</span>
+                                <span>ServiceNow</span>
+                                <span>Networking</span>
+                                <span>VPN</span>
+                                <span>DNS/DHCP</span>
+                                <span>Exchange Online</span>
+                                <span>Cisco</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
             </div>
+        </section>
 
-        </div>
+        <section class="credentials" id="credentials">
+            <div class="wrap">
 
-    </div>
+                <div class="section-head">
+                    <span class="index">04</span>
+                    <p class="eyebrow">Credentials</p>
+                    <h2>Certifications &amp; Education.</h2>
+                </div>
 
-</section>
+                <div class="credentials-grid">
 
-    <section class="projects" id="projects">
-       
+                    <div>
+                        <h3 class="sub-title">Certifications</h3>
 
-    <div class="projects-container">
+                        <ul class="cert-list">
+                            <li><span class="cert-provider">Microsoft</span><span class="cert-name">Azure Administrator Associate (AZ-104)</span></li>
+                            <li><span class="cert-provider">Microsoft</span><span class="cert-name">Azure Fundamentals (AZ-900)</span></li>
+                            <li><span class="cert-provider">ITIL</span><span class="cert-name">ITIL v4 Foundation</span></li>
+                            <li><span class="cert-provider">ServiceNow</span><span class="cert-name">Certified System Administrator</span></li>
+                            <li><span class="cert-provider">AWS</span><span class="cert-name">Security Fundamentals</span></li>
+                            <li><span class="cert-provider">Google Cloud</span><span class="cert-name">GCP Essentials</span></li>
+                        </ul>
+                    </div>
 
-        <div class="projects-header">
-            <span>Featured Projects</span>
+                    <div>
+                        <h3 class="sub-title">Education</h3>
 
-           
-   <div class="project-card">
+                        <div class="edu-item">
+                            <p class="edu-date">APRIL 2023 &mdash; DECEMBER 2023</p>
+                            <h4>Virtualization &amp; Cloud Computing</h4>
+                            <p>Conestoga College &bull; Waterloo, Canada</p>
+                            <p class="gpa">GPA: 3.8 / 4.0</p>
+                        </div>
 
-    <p class="project-number">PROJECT 01</p>
+                        <div class="edu-item">
+                            <p class="edu-date">SEPTEMBER 2019 &mdash; APRIL 2021</p>
+                            <h4>Computer Systems Technician &mdash; Networking</h4>
+                            <p>Mohawk College &bull; Hamilton, Canada</p>
+                            <p class="gpa">GPA: 3.6 / 4.0</p>
+                        </div>
+                    </div>
 
-    <h3>
-        Production-Ready AWS Infrastructure & DevOps Platform
-    </h3>
+                </div>
 
-    <p class="project-description">
-        Built a production-ready AWS environment using Infrastructure as Code,
-        containerization, Kubernetes and automated deployment workflows.
-    </p>
+            </div>
+        </section>
 
-    <div class="project-summary-grid">
+        <section class="skills" id="skills">
+            <div class="wrap">
 
-        <div class="project-summary-block">
-            <h4>Goal</h4>
-            <p>
-                Build a scalable cloud environment from the ground up while
-                applying modern DevOps practices and automation.
-            </p>
-        </div>
+                <div class="section-head">
+                    <span class="index">05</span>
+                    <p class="eyebrow">Technical Skills</p>
+                    <h2>Tools and technologies I work with</h2>
+                </div>
 
-        <div class="project-summary-block">
-            <h4>What I Implemented</h4>
-            <p>
-                Provisioned AWS infrastructure with Terraform, configured VPCs,
-                subnets, IAM, EC2 and RDS, containerized the application with Docker,
-                and deployed it to Amazon EKS using Kubernetes.
-            </p>
-        </div>
+                <div class="skills-grid">
 
-        <div class="project-summary-block">
-            <h4>Skills Gained</h4>
-            <p>
-                Infrastructure as Code, AWS networking, Docker, Linux administration,
-                containerization, Kubernetes, CI/CD and cloud automation.
-            </p>
-        </div>
+                    <div class="skill-group">
+                        <h3>Identity &amp; Security</h3>
+                        <p class="skill-line">
+                            <span>Microsoft Entra ID</span><span>Active Directory</span><span>Intune</span><span>Conditional Access</span><span>MFA</span><span>SSO</span><span>IAM</span><span>RBAC</span><span>PIM</span><span>MDM</span><span>Microsoft Defender</span>
+                        </p>
+                    </div>
 
-        <div class="project-summary-block">
-            <h4>Outcome</h4>
-            <p>
-                Created a repeatable cloud deployment workflow with automated
-                infrastructure provisioning and containerized application delivery.
-            </p>
-        </div>
+                    <div class="skill-group">
+                        <h3>Cloud &amp; Infrastructure</h3>
+                        <p class="skill-line">
+                            <span>Microsoft Azure</span><span>AWS</span><span>GCP</span><span>Virtual Machines</span><span>Hybrid Cloud</span>
+                        </p>
+                    </div>
 
-    </div>
+                    <div class="skill-group">
+                        <h3>Networking</h3>
+                        <p class="skill-line">
+                            <span>Site-to-Site VPN</span><span>Firewalls</span><span>NSG</span><span>VNET</span><span>DNS</span><span>DHCP</span><span>TCP/IP</span><span>SSH</span><span>NAT</span><span>UniFi Switching</span><span>Splunk</span><span>Network Security</span><span>Kuma Uptime</span>
+                        </p>
+                    </div>
 
-    <div class="project-tech">
-        <span>AWS</span>
-        <span>Terraform</span>
-        <span>Amazon VPC</span>
-        <span>EC2</span>
-        <span>Amazon RDS</span>
-        <span>IAM</span>
-        <span>Docker</span>
-        <span>Amazon EKS</span>
-        <span>Kubernetes</span>
-        <span>GitHub Actions</span>
-        <span>Linux</span>
-    </div>
+                    <div class="skill-group">
+                        <h3>ITSM &amp; Support</h3>
+                        <p class="skill-line">
+                            <span>Microsoft 365</span><span>ServiceNow</span><span>Jira</span><span>Zendesk</span><span>Okta</span><span>Kaseya VSA X</span><span>N-able</span><span>ConnectWise</span><span>Patch Management</span><span>Knowledge Base</span><span>SOP</span>
+                        </p>
+                    </div>
 
-</div> <!-- closes PROJECT 01 -->
+                    <div class="skill-group">
+                        <h3>Automation &amp; DevOps</h3>
+                        <p class="skill-line">
+                            <span>PowerShell</span><span>Git</span><span>GitHub</span><span>GitHub Actions</span><span>CI/CD</span><span>Infrastructure as Code</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Power Automate</span><span>REST APIs</span><span>JSON</span>
+                        </p>
+                    </div>
 
-<div class="project-card">
+                    <div class="skill-group">
+                        <h3>Platforms &amp; AI</h3>
+                        <p class="skill-line">
+                            <span>Windows</span><span>Linux</span><span>macOS</span><span>iOS</span><span>Android</span><span>Microsoft Copilot Studio</span><span>AI Workflows</span>
+                        </p>
+                    </div>
 
-    <p class="project-number">PROJECT 02</p>
+                </div>
 
-    <h3>
-        Enterprise Identity, Endpoint & Infrastructure Migration
-    </h3>
+            </div>
+        </section>
 
-    <p class="project-description">
-        Modernized an on-premises environment by migrating identity,
-        endpoints and supporting infrastructure to a cloud-first Microsoft ecosystem.
-    </p>
+        <section class="contact" id="contact">
+            <div class="wrap">
 
-    <div class="project-summary-grid">
+                <p class="eyebrow">LET'S CONNECT</p>
 
-        <div class="project-summary-block">
-            <h4>Goal</h4>
-            <p>
-                Move from traditional on-premises infrastructure to a more
-                secure, manageable and cloud-first environment with minimal user disruption.
-            </p>
-        </div>
+                <h2>Interested in working together?</h2>
 
-        <div class="project-summary-block">
-            <h4>What I Implemented</h4>
-            <p>
-                Migrated 120+ Windows devices from Active Directory to Entra ID,
-                implemented Intune, Conditional Access and Zero Trust controls,
-                and modernized printers, file services and Azure infrastructure.
-            </p>
-        </div>
-
-        <div class="project-summary-block">
-            <h4>Skills Gained</h4>
-            <p>
-                Cloud migration, endpoint management, identity modernization, DNS, Data migration,
-                security implementation, infrastructure planning, and enterprise change management.
-            </p>
-        </div>
-
-        <div class="project-summary-block">
-            <h4>Outcome</h4>
-            <p>
-                Established a centralized cloud-first environment with modern
-                identity, endpoint, and security controls across more than 120 devices, including on-prem 
-                phones and printers to the cloud.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="project-tech">
-        <span>Microsoft Entra ID</span>
-        <span>Microsoft Intune</span>
-          <span>Site to Site VPN</span>
-        <span>Entra Connect</span>
-        <span>Data loss prevention</span>
-        <span>Active Directory</span>
-        <span>Conditional Access</span>
-        <span>Zero Trust</span>
-        <span>Azure</span>
-        <span>Universal Print</span>
-        <span>DNS/DHCP</span>
-        <span>UniFi</span>
-    </div>
-
-</div>
-
-</div> <!-- closes PROJECT 02 -->
-
-</div> <!-- closes projects-container -->
-
-</section> <!-- closes projects section -->
-
-    
-    <section class="experience" id="experience">
-
-    <div class="experience-container">
-
-        <div class="experience-header">
-            <span>Professional Experience</span>
-            <h2>Professional career</h2>
-        </div>
-
-        <div class="timeline">
-
-
-            <!-- CURRENT ROLE -->
-
-            <div class="experience-item">
-
-                <div class="experience-dot"></div>
-
-                <p class="experience-date">
-                    APRIL 2024 — PRESENT
+                <p class="contact-desc">
+                    I'm open to opportunities in IT systems administration,
+                    Cloud administration &amp; infrastructure, Microsoft technologies, DevOps roles, identity,
+                    security and automation.
                 </p>
 
-                <h3>IT Systems Administrator</h3>
-
-                <p class="company">
-                    HD Mutual Insurance Company • Canada
-                </p>
-
-                <ul>
-                    <li>
-                        Serve as the sole IT Systems Administrator providing
-                        L3 technical support to 120+ users across Microsoft 365,
-                        Windows, macOS, Entra ID, Intune and enterprise applications.
-                    </li>
-
-                    <li>
-                        Manage identity and access, application deployment,
-                        onboarding/offboarding, endpoints, licensing and
-                        user lifecycle processes.
-                    </li>
-                    
-                    <li>
-                        Support employee onboarding and offboarding through account provisioning/deprovisioning,
-                        device configuration, and license administration; maintain IT hardware inventory records,
-                         ensuring accurate asset assignment and software entitlement tracking.
-                    </li> 
-                    
-                     <li>
-                        Engineered AI-powered IT support automation using Microsoft Graph API, 
-                         Power Automate, REST APIs, and Copilot Studio, 
-                         enabling self-service workflows and reducing manual effort in the service desk.
-                    </li>
-                    
-                    <li>
-                        Implemented Intune, Conditional Access, Zero Trust,
-                        MDM/MAM, RBAC, SSO, SSPR and Entra PIM, contributing
-                        to an increase in Microsoft Defender Secure Score
-                        from 45% to 90%.
-                    </li>
-
-                    <li>
-                        Administer Jira Cloud, managing projects, 
-                        workflows, automations, and JPD implementation as the Continual Improvement Register (CIR).
-                    </li>
-                </ul>
-
-                <div class="experience-tags">
-                    <span>Microsoft 365</span>
-                    <span>Azure</span>
-                    <span>Entra ID</span>
-                    <span>Intune</span>
-                    <span>Defender</span>
-                    <span>PowerShell</span>
-                    <span>Graph API</span>
-                    <span>Power Automate</span>
+                <div class="contact-links">
+                    <a href="mailto:krishnamistry712@gmail.com" class="link-row">Email Me</a>
+                    <a href="https://www.linkedin.com/in/krishna-mistry-7482aa200" class="link-row" target="_blank">LinkedIn</a>
                 </div>
 
             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Krishna Mistry &bull; IT Systems Administrator</p>
+    </footer>
+
+    <script>
+    (function () {
+        var toggle = document.getElementById('navToggle');
+        var links = document.getElementById('navLinks');
+
+        if (toggle && links) {
+            toggle.addEventListener('click', function () {
+                var open = links.classList.toggle('open');
+                toggle.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            links.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    links.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        var nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function () {
+            if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reduceMotion && 'IntersectionObserver' in window) {
+            var revealSelector = '.about-col, .project, .role, .cert-list, .edu-item, .skill-group, .media-frame';
+            var revealEls = document.querySelectorAll(revealSelector);
+            revealEls.forEach(function (el) { el.classList.add('reveal'); });
+
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            revealEls.forEach(function (el) { revealObserver.observe(el); });
+        }
+
+        var sections = document.querySelectorAll('section[id]');
+        var navAnchors = document.querySelectorAll('#navLinks a');
+        if (sections.length && navAnchors.length && 'IntersectionObserver' in window) {
+            var spy = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    var id = entry.target.getAttribute('id');
+                    navAnchors.forEach(function (a) {
+                        if (a.getAttribute('href') === '#' + id) {
+                            a.classList.toggle('active', entry.isIntersecting);
+                        }
+                    });
+                });
+            }, { threshold: 0.3, rootMargin: '-90px 0px -55% 0px' });
+            sections.forEach(function (s) { spy.observe(s); });
+        }
+    })();
+    </script>
 
-
-            <!-- PREVIOUS ROLE -->
-
-            <div class="experience-item">
-
-                <div class="experience-dot"></div>
-
-                <p class="experience-date">
-                    SEPTEMBER 2019 — APRIL 2024
-                </p>
-
-                <h3>Tier 2 IT Analyst</h3>
-
-                <p class="company">
-                    Fully Managed by TELUS Business • Canada
-                </p>
-
-                <ul>
-                    <li>
-                        Progressed from Tier 1 to Tier 2 within one year
-                        based on technical performance.
-                    </li>
-
-                    <li>
-                        Provided L2 technical support across Microsoft 365, ServiceNow,
-                         Cisco, Windows Server, networking, VPN, DNS/DHCP, Exchange Online, 
-                        backups, and enterprise environments.
-                    </li>
-
-                    <li>
-                        Diagnosed complex hardware, software, network and
-                        infrastructure incidents while performing root cause
-                        analysis and maintaining SLA requirements.
-                    </li>
-
-                    <li>
-                        Supported laptops, printers, networking equipment,
-                        endpoint peripherals, backups and recovery processes.
-                    </li>
-                </ul>
-
-                <div class="experience-tags">
-                    <span>Microsoft 365</span>
-                    <span>Windows Server</span>
-                    <span>ServiceNow</span>
-                    <span>Networking</span>
-                    <span>VPN</span>
-                    <span>DNS/DHCP</span>
-                    <span>Exchange Online</span>
-                    <span>Cisco</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-    <section class="credentials" id="credentials">
-
-    <div class="credentials-container">
-
-        <div class="credentials-header">
-            <span>Credentials</span>
-            <h2>Certifications & Education.</h2>
-        </div>
-
-        <div class="credentials-grid">
-
-
-            <!-- CERTIFICATIONS -->
-
-            <div>
-
-                <h3 class="credentials-title">Certifications</h3>
-
-                <div class="cert-grid">
-
-                    <div class="cert-card">
-                        <p class="cert-provider">Microsoft</p>
-                        <h4>Azure Administrator Associate (AZ-104)</h4>
-                    </div>
-
-                    <div class="cert-card">
-                        <p class="cert-provider">Microsoft</p>
-                        <h4>Azure Fundamentals (AZ-900)</h4>
-                    </div>
-
-                    <div class="cert-card">
-                        <p class="cert-provider">ITIL</p>
-                        <h4>ITIL v4 Foundation</h4>
-                    </div>
-
-                    <div class="cert-card">
-                        <p class="cert-provider">ServiceNow</p>
-                        <h4>Certified System Administrator</h4>
-                    </div>
-
-                    <div class="cert-card">
-                        <p class="cert-provider">AWS</p>
-                        <h4>Security Fundamentals</h4>
-                    </div>
-
-                    <div class="cert-card">
-                        <p class="cert-provider">Google Cloud</p>
-                        <h4>GCP Essentials</h4>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- EDUCATION -->
-
-            <div>
-
-                <h3 class="credentials-title">Education</h3>
-
-                <div class="education-card">
-
-                    <p class="education-date">
-                        APRIL 2023 — DECEMBER 2023
-                    </p>
-
-                    <h4>
-                        Virtualization & Cloud Computing
-                    </h4>
-
-                    <p>
-                        Conestoga College • Waterloo, Canada
-                    </p>
-
-                    <p class="gpa">
-                        GPA: 3.8 / 4.0
-                    </p>
-
-                </div>
-
-
-                <div class="education-card">
-
-                    <p class="education-date">
-                        SEPTEMBER 2019 — APRIL 2021
-                    </p>
-
-                    <h4>
-                        Computer Systems Technician — Networking
-                    </h4>
-
-                    <p>
-                        Mohawk College • Hamilton, Canada
-                    </p>
-
-                    <p class="gpa">
-                        GPA: 3.6 / 4.0
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <section class="skills-section" id="skills">
-
-    <div class="skills-container">
-
-        <div class="skills-header">
-            <span>Technical Skills</span>
-            <h2>Tools and technologies I work with</h2>
-        </div>
-
-        <div class="skills-grid">
-
-
-            <div class="skills-category">
-                <h3>Identity & Security</h3>
-
-                <div class="skills-list">
-                    <span>Microsoft Entra ID</span>
-                    <span>Active Directory</span>
-                    <span>Intune</span>
-                    <span>Conditional Access</span>
-                    <span>MFA</span>
-                    <span>SSO</span>
-                    <span>IAM</span>
-                    <span>RBAC</span>
-                    <span>PIM</span>
-                    <span>MDM</span>
-                    <span>Microsoft Defender</span>
-                </div>
-            </div>
-
-
-            <div class="skills-category">
-                <h3>Cloud & Infrastructure</h3>
-
-                <div class="skills-list">
-                    <span>Microsoft Azure</span>
-                    <span>AWS</span>
-                    <span>GCP</span>
-                    <span>Virtual Machines</span>
-                    <span>Hybrid Cloud</span>
-                </div>
-            </div>
-
-
-            <div class="skills-category">
-                <h3>Networking</h3>
-
-                <div class="skills-list">
-                    <span>Site-to-Site VPN</span>
-                    <span>Firewalls</span>
-                    <span>NSG</span>
-                    <span>VNET</span>
-                    <span>DNS</span>
-                    <span>DHCP</span>
-                    <span>TCP/IP</span>
-                    <span>SSH</span>
-                    <span>NAT</span>
-                    <span>UniFi Switching</span>
-                    <span>Splunk</span>
-                    <span>Network Security</span>
-                    <span>Kuma Uptime</span>
-                </div>
-            </div>
-
-
-            <div class="skills-category">
-                <h3>ITSM & Support</h3>
-
-                <div class="skills-list">
-                    <span>Microsoft 365</span>
-                    <span>ServiceNow</span>
-                    <span>Jira</span>
-                    <span>Zendesk</span>
-                    <span>Okta</span>
-                    <span>Kaseya VSA X</span>
-                    <span>N-able</span>
-                    <span>ConnectWise</span>
-                    <span>Patch Management</span>
-                    <span>Knowledge Base</span>
-                    <span>SOP</span>
-                </div>
-            </div>
-
-
-            <div class="skills-category">
-                <h3>Automation & DevOps</h3>
-
-                <div class="skills-list">
-                   <span>PowerShell</span>
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>GitHub Actions</span>
-        <span>CI/CD</span>
-        <span>Infrastructure as Code</span>
-        <span>Terraform</span>
-        <span>Docker</span>
-        <span>Kubernetes</span>
-        <span>Power Automate</span>
-        <span>REST APIs</span>
-        <span>JSON</span>
-                </div>
-            </div>
-
-                        <div class="skills-category">
-                <h3>Platforms & AI</h3>
-
-                <div class="skills-list">
-                   <div class="skill-tags">
-        <span>Windows</span>
-        <span>Linux</span>
-        <span>macOS</span>
-        <span>iOS</span>
-        <span>Android</span>
-        <span>Microsoft Copilot Studio</span>
-        <span>AI Workflows</span>
-                </div>
-            </div>
-            
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="contact" id="contact">
-
-    <div class="contact-container">
-
-        <p class="contact-tag">
-            LET'S CONNECT
-        </p>
-
-        <h2>
-            Interested in working together?
-        </h2>
-
-        <p class="contact-description">
-            I'm open to opportunities in IT systems administration,
-            Cloud administration & infrastructure, Microsoft technologies, DevOps roles, identity,
-            security and automation.
-        </p>
-
-        <div class="contact-buttons">
-
-            <a href="mailto:krishnamistry712@gmail.com"
-               class="btn btn-primary">
-                Email Me
-            </a>
-
-            <a href="https://www.linkedin.com/in/krishna-mistry-7482aa200"
-               class="btn btn-secondary"
-               target="_blank">
-                LinkedIn
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<footer class="footer">
-
-    <p>
-        © 2026 Krishna Mistry • IT Systems Administrator
-    </p>
-
-</footer>
 </body>
 </html>
